@@ -9,7 +9,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 import java.util.Collection;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class ProdutoDAOTest {
 
@@ -60,7 +60,7 @@ public class ProdutoDAOTest {
     @Test
     public void buscarTodos() {
         Collection<Produto> list = produtoDao.buscarTodos();
-        assertTrue(list != null);
-        assertTrue(list.size() == 2);
+        assertNotNull(list);
+        assertEquals(2, list.size());
     }
 }

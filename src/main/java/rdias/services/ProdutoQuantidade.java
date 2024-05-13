@@ -44,8 +44,7 @@ public class ProdutoQuantidade {
     public void adicionar(Integer quantidade) {
         this.quantidade += quantidade;
         BigDecimal novoValor = this.produto.getValor().multiply(BigDecimal.valueOf(quantidade));
-        BigDecimal novoTotal = this.valorTotal.add(novoValor);
-        this.valorTotal = novoTotal;
+        this.valorTotal = this.valorTotal.add(novoValor);
     }
 
     public void remover(Integer quantidade) {

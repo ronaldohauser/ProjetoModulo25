@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import java.util.Collection;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class ClienteDAOTest {
 
@@ -25,9 +25,9 @@ public class ClienteDAOTest {
     public void init() throws TipoChaveNaoEncontradaException {
         cliente = new Cliente();
         cliente.setCpf(12312312312L);
-        cliente.setNome("Oliver");
+        cliente.setNome("Dias");
         cliente.setCidade("São Paulo");
-        cliente.setEndereco("Av. Moema");
+        cliente.setEndereco("Av. Vila Ema");
         cliente.setEstado("SP");
         cliente.setNumero(10);
         cliente.setTelefone(1199999999L);
@@ -55,15 +55,15 @@ public class ClienteDAOTest {
 
     @Test
     public void alterarCliente() throws TipoChaveNaoEncontradaException {
-        cliente.setNome("Rodrigo Pires");
+        cliente.setNome("Ronaldo Dias");
         clienteDao.alterar(cliente);
-        Assert.assertEquals("Rodrigo Pires", cliente.getNome());
+        Assert.assertEquals("Ronaldo Dias", cliente.getNome());
     }
 
     @Test
     public void buscarTodos() {
         Collection<Cliente> list = clienteDao.buscarTodos();
-        assertTrue(list != null);
-        assertTrue(list.size() == 2);
+        assertNotNull(list);
+        assertEquals(2, list.size());
     }
 }
